@@ -5,14 +5,14 @@
 Objetivo: Ralizar um sistema simples de Ratinges (avaliações) de Pokemon.
 
 Funcionalidades: <br />
-                  * Utilizaremos da API de Pokemon, para listar os pokemons.
-                  * O usuário ao selecionar o pokemon de interesse, poderá avaliar o mesmo. Com Estrelas de 1 a 5, um titulo e descrição.
-                  * Listagem das avaliações já inseridas.
-                  * Filtros para selecionar as avaliações por nome do pokemon ou número de estrelas.
+                  <br />* Utilizaremos da API de Pokemon, para listar os pokemons.
+                  <br />* O usuário ao selecionar o pokemon de interesse, poderá avaliar o mesmo. Com Estrelas de 1 a 5, um titulo e descrição.
+                  <br />* Listagem das avaliações já inseridas.
+                  <br />* Filtros para selecionar as avaliações por nome do pokemon ou número de estrelas.
 
-Tecnologias: 
-                  * Back - NodeJS, Express, Next, Postgres.
-                  * Front - React, DigitalUi.
+Tecnologias: <br />
+                  <br />* Back - NodeJS, Express, Next, Postgres.
+                  <br />* Front - React, DigitalUi.
               
 
 Responsável Front-end: @mikhael-dantas <a href="https://github.com/mikhael-dantas">
