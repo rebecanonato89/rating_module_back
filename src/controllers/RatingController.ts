@@ -5,13 +5,15 @@ export default class RatingController {
 
     async index(request: Request, response: Response) {
 
-        const filters = request.query;
+        const filters: any = request.query;
 
 
         if (!filters.id_origin && !filters.stars) {
 
             const rating = await db('rating')
                 .orderBy('stars', 'desc')
+                .limit(filters.limit)
+                .offset(filters.offset)
                 .select('rating.*');
 
             return response.json(rating);
@@ -24,6 +26,8 @@ export default class RatingController {
             const rating = await db('rating')
                 .where('stars', '>=', stars)
                 .orderBy('stars', 'desc')
+                .limit(filters.limit)
+                .offset(filters.offset)
                 .select();
 
             return response.json(rating);
@@ -35,6 +39,8 @@ export default class RatingController {
             .where('stars', '>=', stars)
             .where('id_origin', '=', id_origin)
             .orderBy('stars', 'desc')
+            .limit(filters.limit)
+            .offset(filters.offset)
             .select();
 
         return response.json(rating);
@@ -43,6 +49,8 @@ export default class RatingController {
 
 
     async create(request: Request, response: Response) {
+
+        console.log("Entrada: ", request.body);
 
         const {
             id_origin,
