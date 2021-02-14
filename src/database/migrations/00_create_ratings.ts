@@ -6,7 +6,7 @@ export async function up(knex: Knex) {
         table.string('id_origin').notNullable();
         table.string('title').notNullable();
         table.string('description').notNullable();
-        table.integer('starts').notNullable();
+        table.integer('stars').notNullable();
     });
 };
 

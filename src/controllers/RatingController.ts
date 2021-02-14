@@ -8,22 +8,22 @@ export default class RatingController {
         const filters = request.query;
 
 
-        if (!filters.id_origin && !filters.starts) {
+        if (!filters.id_origin && !filters.stars) {
 
             const rating = await db('rating')
-                .orderBy('starts','desc')
+                .orderBy('stars', 'desc')
                 .select('rating.*');
 
             return response.json(rating);
         }
 
-        const starts = filters.starts ? filters.starts as string : '0';
+        const stars = filters.stars ? filters.stars as string : '0';
 
         if (!filters.id_origin) {
 
             const rating = await db('rating')
-                .where('starts', '>=', starts)
-                .orderBy('starts','desc')
+                .where('stars', '>=', stars)
+                .orderBy('stars', 'desc')
                 .select();
 
             return response.json(rating);
@@ -32,9 +32,9 @@ export default class RatingController {
         const id_origin = filters.id_origin as string;
 
         const rating = await db('rating')
-            .where('starts', '>=', starts)
+            .where('stars', '>=', stars)
             .where('id_origin', '=', id_origin)
-            .orderBy('starts','desc')
+            .orderBy('stars', 'desc')
             .select();
 
         return response.json(rating);
@@ -48,7 +48,7 @@ export default class RatingController {
             id_origin,
             title,
             description,
-            starts
+            stars
         } = request.body;
 
         const trx = await db.transaction();
@@ -58,7 +58,7 @@ export default class RatingController {
                 id_origin,
                 title,
                 description,
-                starts
+                stars
             });
 
             await trx.commit();
